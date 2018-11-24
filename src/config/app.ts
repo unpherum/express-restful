@@ -1,9 +1,8 @@
-import * as express from "express";
 import * as bodyParser from "body-parser";
-import { Routes } from "./routes/index";
-import { UserRoutes } from "./routes/user";
+import * as express from "express";
 import * as mongoose from "mongoose";
-
+import { Routes } from "../routes/index";
+import { UserRoutes } from "../routes/user";
 
 class App {
 
@@ -22,7 +21,7 @@ class App {
         this.userRoutes.routes(this.app);
     }
 
-    private mongoSetup(): void{
+    private mongoSetup(): void {
         mongoose.Promise = global.Promise;
         mongoose.connect(this.mongoUrl, { useNewUrlParser: true })
                 .then( () => {
@@ -34,7 +33,7 @@ class App {
                 });    
     }
 
-    private config(): void{
+    private config(): void {
         // support application/json type post data
         this.app.use(bodyParser.json());
         //support application/x-www-form-urlencoded post data

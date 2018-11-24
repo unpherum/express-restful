@@ -8,7 +8,7 @@ export class Routes {
             response.status(200).send({
                 message: 'GET request successfulll!!!!'
             })
-        }); 
+        });
                 
     }
 }
